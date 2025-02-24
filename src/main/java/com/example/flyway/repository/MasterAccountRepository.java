@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface MasterAccountRepository extends JpaRepository<MasterAccount, Long> {
 
     @Query(value = "SELECT user_id, SUM(balance) AS totalBalance " +
-            "FROM BACKOFFICE_XE.MASTER_ACCOUNT " +
+            "FROM BACKOFFICE.MASTER_ACCOUNT_FUAD " +
             "WHERE user_id = :id " +
             "GROUP BY user_id",
             nativeQuery = true)

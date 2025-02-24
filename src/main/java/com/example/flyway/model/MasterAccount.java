@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Entity
 @Setter
 @Getter
-@Table(name = "MASTER_ACCOUNT", schema = "BACKOFFICE_XE")
+@Table(name = "MASTER_ACCOUNT_FUAD", schema = "BACKOFFICE")
 public class MasterAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

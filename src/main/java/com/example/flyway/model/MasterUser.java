@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-@Table(name = "MASTER_USER", schema = "BACKOFFICE_XE")
+@Table(name = "MASTER_USER_FUAD", schema = "BACKOFFICE")
 public class MasterUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

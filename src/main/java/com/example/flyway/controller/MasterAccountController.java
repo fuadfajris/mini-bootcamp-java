@@ -2,7 +2,7 @@ package com.example.flyway.controller;
 
 import com.example.flyway.dto.response.UserBalanceDTO;
 import com.example.flyway.model.MasterAccount;
-import com.example.flyway.repository.MasterAccountRepository;
+import com.example.flyway.service.MasterAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,20 +16,20 @@ import java.util.Optional;
 @RequestMapping("/account")
 public class MasterAccountController {
     @Autowired
-    private MasterAccountRepository masterAccountRepository;
+    private MasterAccountService masterAccountService;
 
     @GetMapping()
     public List<MasterAccount> getAllAccount() {
-        return masterAccountRepository.findAll();
+        return masterAccountService.getAllAccount();
     }
 
     @GetMapping("/{id}")
     public Optional<MasterAccount> getAccountById(@PathVariable Long id) {
-        return masterAccountRepository.findById(id);
+        return masterAccountService.getAccountById(id);
     }
 
     @GetMapping("/{id}/balances")
-    public Optional<UserBalanceDTO> getUserBalances(@PathVariable Long id) {
-        return masterAccountRepository.getUserBalanceSummaryByUserId(id);
+    public UserBalanceDTO getUserBalances(@PathVariable Long id) {
+        return masterAccountService.getAccountBalanceById(id);
     }
 }

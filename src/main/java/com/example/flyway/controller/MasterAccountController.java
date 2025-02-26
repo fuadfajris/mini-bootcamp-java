@@ -29,7 +29,7 @@ public class MasterAccountController {
     }
 
     @GetMapping("/{id}/balances")
-    public UserBalanceDTO getUserBalances(@PathVariable Long id) {
+    public Object getUserBalances(@PathVariable Long id) {
         return masterAccountService.getAccountBalanceById(id);
     }
 }

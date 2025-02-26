@@ -1,5 +1,6 @@
 package com.example.flyway.service;
 
+import com.example.flyway.dto.response.MessageDTO;
 import com.example.flyway.dto.response.UserBalanceDTO;
 import com.example.flyway.model.MasterAccount;
 import com.example.flyway.model.MasterUser;
@@ -32,10 +33,12 @@ public class MasterAccountService {
         return masterAccountRepository.findById(id);
     }
 
-    public UserBalanceDTO getAccountBalanceById(Long id) {
+    public Object getAccountBalanceById(Long id) {
         Optional<MasterUser> optionalUser = masterUserRepository.findById(id);
         if(optionalUser.isEmpty()) {
-            return null;
+            MessageDTO obj = new MessageDTO();
+            obj.setMessage("User Not Found");
+            return obj;
         }
 
         String sql = "SELECT COALESCE(SUM(balance),0) " +

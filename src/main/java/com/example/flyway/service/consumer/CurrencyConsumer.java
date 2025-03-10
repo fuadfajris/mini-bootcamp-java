@@ -18,14 +18,7 @@ public class CurrencyConsumer {
     public void consume(CurrencyResponseDTO message) {
         try {
             System.out.println("Received currency data: " + message);
-//            if (message.getRates() != null && !message.getRates().isEmpty()) {
-//                for (Map.Entry<String, String> entry : message.getRates().entrySet()) {
-//                    System.out.println("Currency: " + entry.getKey() + " - Rate: " + entry.getValue());
-//                }
-//            }
             if (message.getRates() != null && !message.getRates().isEmpty()) {
-                System.out.println("masuk if" + message.getDate());
-                System.out.println("masuk if2" + message.getBase());
                 for (Map.Entry<String, String> entry : message.getRates().entrySet()) {
                     Currency data = new Currency();
                     data.setExchangeDate(message.getDate());
